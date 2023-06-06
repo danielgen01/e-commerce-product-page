@@ -1,4 +1,21 @@
-const Caption = () => {
+import {useState} from "react"
+
+const Caption:React.FC = () => {
+
+  const [quantity, setQuantity] = useState<number>(0);
+
+  const incrementQuantity = () => {
+    if(quantity >= 0){
+    setQuantity((prevQuantity) => prevQuantity + 1);
+  }
+  };
+
+  const decrementQuantity = () => {
+    if(quantity != 0){
+    setQuantity((prevQuantity) => prevQuantity - 1);
+    }
+  };
+
   return (
     <figcaption className="px-10 py-5 flex flex-col gap-4 caption">
       <h1 className="text-Orange/80 font-bold tracking-wider text-lg">
@@ -22,17 +39,17 @@ const Caption = () => {
 
       <div className="quantity-box bg-Light-grayish-blue w-full h-14 rounded-lg">
         <div className="quantity-box-content px-4 flex justify-between h-full w-full items-center">
-          <button>
-            <img src="public\assets\images\icon-minus.svg" alt="" />
+          <button onClick={decrementQuantity} className="h-full">
+            <img src="public\assets\images\icon-minus.svg" alt="minus" />
           </button>
-          <p className="quantity-number font-bold text-xl">0</p>
-          <button>
-            <img src="public\assets\images\icon-plus.svg" alt="" />
+          <p className="quantity-number font-bold text-xl">{quantity}</p>
+          <button onClick={incrementQuantity} className="h-full">
+            <img src="public\assets\images\icon-plus.svg" alt="plus" />
           </button>
         </div>
       </div>
 
-      <button className="add-to-cart-button h-16 bg-Orange overflow-x-hidden rounded-xl flex justify-center items-center gap-4 text-white font-bold">
+      <button className="add-to-cart-button h-16 bg-Orange overflow-x-hidden rounded-xl flex justify-center items-center gap-4 text-white font-bold" >
         <img src="public\assets\images\icon-cart.svg" alt="" />
         <p>Add to cart</p>
       </button>
