@@ -2,7 +2,7 @@ const Header = () => {
   return (
     <header className="h-20 px-5 flex items-center gap-4 justify-between">
       <section className="flex items-center gap-5">
-        <button>
+        <button className="lg:hidden">
           <img src={"/assets/images/icon-menu.svg"} alt="Menu-icon" />
         </button>
         <button>
@@ -20,7 +20,7 @@ const Header = () => {
             className="w-8"
           />
         </button>
-        
+
       </section>
     </header>
   )
