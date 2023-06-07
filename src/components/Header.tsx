@@ -1,5 +1,16 @@
+import CartModal from "./CartModal"
+import {useState} from "react"
+
 const Header = () => {
+
+  const [isCartModalOpen,setIsCartModalOpen] = useState(false)
+
+  const toggleCartModal = () => {
+    setIsCartModalOpen(!isCartModalOpen)
+  }
+
   return (
+    <>
     <header className="h-20 px-5 flex items-center gap-4 justify-between">
       <section className="flex items-center gap-5">
         <button className="lg:hidden">
@@ -10,7 +21,7 @@ const Header = () => {
         </button>
       </section>
       <section className="flex items-center gap-5">
-        <button>
+        <button onClick={toggleCartModal}>
           <img src="/assets/images/icon-cart.svg" alt="icon-logo" />
         </button>
         <button>
@@ -23,7 +34,8 @@ const Header = () => {
 
       </section>
     </header>
-  )
+    <CartModal isCartModalOpen={isCartModalOpen}/>
+    </> )
 }
 
 export default Header
