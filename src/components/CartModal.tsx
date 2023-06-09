@@ -1,6 +1,7 @@
 type Props = {
     isCartModalOpen: boolean
     cartItems: []
+    setCartItems:any
 }
 
 type CartItem = {
@@ -10,7 +11,13 @@ type CartItem = {
     qty:number
   }
 
-const CartModal: React.FC<Props> = ({ isCartModalOpen, cartItems }) => {
+const CartModal: React.FC<Props> = ({ isCartModalOpen, cartItems, setCartItems }) => {
+
+    const removeItem = (itemName: string) => {
+        const updatedItems = cartItems.filter((item: CartItem) => item.name !== itemName);
+        setCartItems(updatedItems);
+      };
+
     return (
         <section className={`cart-modal lg:px-20 ${isCartModalOpen ? "relative" : "hidden"}`}>
             <div className="cart-box h-96 lg:h-40 w-[777px] lg:w-72 bg-white shadow-xl  rounded-xl px-1 py-3 mb-1 mt-1 absolute right-10">
@@ -28,7 +35,9 @@ const CartModal: React.FC<Props> = ({ isCartModalOpen, cartItems }) => {
                                 </div>
 
                                 <div className="delete flex justify-end">
-                                    <button><img src="/assets/images/icon-delete.svg" alt=""  className="h-6"/></button>
+                                    <button onClick={() => removeItem(cartItem.name)}>
+                                        <img src="/assets/images/icon-delete.svg" alt=""  className="h-6"/>
+                                        </button>
                                 </div>
                                     
                                 </section>

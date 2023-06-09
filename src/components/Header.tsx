@@ -3,8 +3,9 @@ import {useState} from "react"
 
 type Props = {
   cartItems:any
+  setCartItems:any
 }
-const Header:React.FC<Props> = ({cartItems}) => {
+const Header:React.FC<Props> = ({cartItems, setCartItems}) => {
 
   const [isCartModalOpen,setIsCartModalOpen] = useState(false)
 
@@ -37,7 +38,8 @@ const Header:React.FC<Props> = ({cartItems}) => {
 
       </section>
     </header>
-    <CartModal isCartModalOpen={isCartModalOpen} cartItems={cartItems}/>
+    <CartModal isCartModalOpen={isCartModalOpen} cartItems={cartItems} 
+    setCartItems={setCartItems} />
     </> )
 }
 
