@@ -1,4 +1,4 @@
-import { useState } from "react"
+import {  useState } from "react"
 
 type CartItem = {
   name: string,
@@ -30,6 +30,7 @@ const Caption: React.FC<Props> = ({ cartItems, setCartItems }) => {
 
 
 
+
   function addToCart() {
     let priceNumber: any = document.getElementById("product-price")?.innerHTML
     let productName:any = document.getElementById("product-name")?.innerHTML
@@ -39,7 +40,7 @@ const Caption: React.FC<Props> = ({ cartItems, setCartItems }) => {
     const newItem: CartItem = {
       name:productName,
       price: priceNumber,
-      imageSrc: "public/assets/images/icon-cart.svg",
+      imageSrc: "/assets/images/image-product-1-thumbnail.jpg",
       qty:quantity
     }
 
@@ -52,8 +53,13 @@ const Caption: React.FC<Props> = ({ cartItems, setCartItems }) => {
     }
 
 
-    console.log(cartItems)
   }
+
+ 
+      console.log(cartItems)
+
+   
+ 
 
   return (
     <figcaption className="px-10 py-5 flex flex-col gap-4 caption lg:gap-7">

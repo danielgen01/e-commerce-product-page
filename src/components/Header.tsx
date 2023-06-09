@@ -1,7 +1,10 @@
 import CartModal from "./CartModal"
 import {useState} from "react"
 
-const Header = () => {
+type Props = {
+  cartItems:any
+}
+const Header:React.FC<Props> = ({cartItems}) => {
 
   const [isCartModalOpen,setIsCartModalOpen] = useState(false)
 
@@ -34,7 +37,7 @@ const Header = () => {
 
       </section>
     </header>
-    <CartModal isCartModalOpen={isCartModalOpen}/>
+    <CartModal isCartModalOpen={isCartModalOpen} cartItems={cartItems}/>
     </> )
 }
 

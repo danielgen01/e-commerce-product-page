@@ -10,7 +10,7 @@ function App() {
 
   return (
     <div className='overflow-x-hidden'>
-      <Header />
+      <Header cartItems={cartItems}/>
       <div className="layout grid grid-cols-1 lg:grid-cols-2 lg:mt-20">
       <ImageCarousel />
       <Caption cartItems={cartItems} setCartItems={setCartItems}/>
